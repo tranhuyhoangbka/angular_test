@@ -1,0 +1,36 @@
+<style>
+  .bold{font-weight: bold}
+</style>
+<div class="col-md-8 col-md-offset-2" ng-app="exampleApp"
+  ng-controller="defaultController">
+  <script type="text/ng-template" id="listTemplate.html">
+    <p>This is the list from the template file</p>
+    <ul class="list-unstyled">
+      <li ng-repeat="item in data" ng-bind="item.price | currency"></li>
+    </ul>
+  </script>
+
+  <script type="text/ng-template" id="tableTemplate.html">
+    <table class="table table-striped">
+      <thead>
+        <tr><th>Name</th><th>Price</th></tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in data">
+          <td ng-bind="item.name"></td>
+          <td ng-bind="item.price | currency"></td>
+        </tr>
+      </tbody>
+    </table>
+  </script>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Products</h3>
+    </div>
+    <div class="panel-body">
+      <div demo-directive><button>Change weight</button></div>
+      <button class="btn btn-primary" ng-click="incrementPrices()">Change prices</button>
+      <div unordered-list="products" template="table" ng-repeat="count in [1, 2, 3]"></div>
+    </div>
+  </div>
+</div>
