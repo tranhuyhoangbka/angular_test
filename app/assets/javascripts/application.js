@@ -19,4 +19,7 @@
 //= require angular/apps/example_app
 //= require angular/directives/unorderListDirective
 //= require angular/directives/demo_directive
+//= require angular/directives/scope_demo_directive
 //= require angular/controllers/default_controller
+//= require angular/controllers/scope_controller
+//= require angular/controllers/second_controller
