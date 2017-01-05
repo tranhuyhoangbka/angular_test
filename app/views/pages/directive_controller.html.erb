@@ -1,0 +1,16 @@
+<div class="col-md-8 col-md-offset-2" ng-app="exampleApp">
+  <script type="text/ng-template" id="productTemplate">
+    <td>{{item.name}}</td>
+    <td><input ng-model="item.quantity"></td>
+  </script>
+  <div class="panel panel-default" ng-controller="directiveController">
+    <div class="panel-body">
+      <table class="table table-striped" product-table="totalValue"
+        product-data="products" ng-transclude>
+        <tr><th>Name</th><th>Quantity</th></tr>
+        <tr ng-repeat="item in products" product-item></tr>
+        <tr><th>Total:</th><td>{{totalValue}}</td></tr>
+      </table>
+    </div>
+  </div>
+</div>

@@ -19,4 +19,14 @@
 //= require angular/apps/example_app
 //= require angular/directives/unorderListDirective
 //= require angular/directives/demo_directive
+//= require angular/directives/scope_demo_directive
+//= require angular/directives/panel_directive
+//= require angular/directives/compile_directive
+//= require angular/directives/product_item_directive
+//= require angular/directives/product_table_directive
 //= require angular/controllers/default_controller
+//= require angular/controllers/scope_controller
+//= require angular/controllers/second_controller
+//= require angular/controllers/transclusion_controller
+//= require angular/controllers/compile_controller
+//= require angular/controllers/directive_ctrl_controller

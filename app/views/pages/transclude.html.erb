@@ -1,0 +1,11 @@
+<div class="col-md-8 col-md-offset-2" ng-app="exampleApp">
+  <script type="text/ng-template" id="template">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>This is the panel</h4></div>
+      <div class="panel-body" ng-transclude></div>
+    </div>
+  </script>
+  <ng-controller ng-controller="transclusionController">
+    <panel>The data value comes from the: {{dataSource}}</panel>
+  </ng-controller>
+</div>
