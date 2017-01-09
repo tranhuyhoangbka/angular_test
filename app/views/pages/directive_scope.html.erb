@@ -1,11 +1,9 @@
 <div class="col-md-8 col-md-offset-2 panel panel-default" ng-app="exampleApp"  ng-controller="scopeController">
   <script type="text/ng-template" id="scopeTemplate">
     <div class="panel-body">
-      <p>Name: <input ng-model="data.name"></p>
-      <p>City: <input ng-model="city"></p>
-      <p>Country: <input ng-model="country"></p>
+      <p>Name: {{local}}, City: {{cityFn({nameVal: local})}}</p>
     </div>
   </script>
-  <div class="panel-body" scope-demo>Test</div>
-  <div class="panel-body" scope-demo></div>
+  <div><input type="text" name="name" ng-model="data.name"></div>
+  <div class="panel-body" scope-demo city="getCity(nameVal)" nameprop="data.name">Test</div>
 </div>

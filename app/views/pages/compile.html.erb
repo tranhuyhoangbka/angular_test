@@ -1,0 +1,12 @@
+<div class="col-md-8 col-md-offset-2" ng-app="exampleApp"
+  ng-controller="compileController">
+  <table class="table table-striped">
+    <thead><tr><th>Name</th><th>Price</th></tr></thead>
+    <tbody>
+      <tr simple-repeater source="products" item-name="item">
+        <td>{{item.name}}<td>{{item.price | currency}}</td></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-default text" ng-click="changeData()">Change</button>
+</div>

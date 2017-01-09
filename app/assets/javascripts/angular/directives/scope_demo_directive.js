@@ -4,6 +4,9 @@ function scopeDemo() {
     template: function() {
       return angular.element(document.querySelector('#scopeTemplate')).html();
     },
-    scope: true
+    scope: {
+      local: '=nameprop',
+      cityFn: '&city'
+    }
   }
 }

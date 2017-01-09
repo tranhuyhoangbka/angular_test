@@ -6,4 +6,16 @@ class PagesController < ApplicationController
   def directive_scope
 
   end
+
+  def transclude
+
+  end
+
+  def compile
+
+  end
+
+  def directive_controller
+
+  end
 end
