@@ -1,9 +1,69 @@
 'use strict';
 
 angular.module('exampleApp').controller('defaultController', defaultController);
-defaultController.$inject = ['$scope'];
+defaultController.$inject = ['$scope', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
 
-function defaultController($scope) {
+function defaultController($scope, $anchorScroll, $location, $interval, $window, $document, logService) {
+  // $scope.displayAlert = function(msg) {
+  //   $window.alert(msg);
+  // };
+  $scope.itemCount = 50;
+  $scope.items = [];
+
+  for(var i = 0; i < $scope.itemCount; i++) {
+    $scope.items[i] = 'Item ' + i;
+  }
+
+  $scope.show = function(id) {
+    $location.hash(id);
+    if(id == 'bottom') {
+      $anchorScroll();
+    }
+  };
+
+  $scope.$on('$locationChangeSuccess', function(event, newUrl) {
+    $scope.url = newUrl;
+  });
+
+  $scope.setUrl = function(component) {
+    switch(component) {
+      case 'reset':
+        $location.path('');
+        $location.hash('');
+        $location.search('');
+        break;
+      case 'path':
+        $location.path('/cities/london');
+        break;
+      case 'hash':
+        $location.hash('north');
+        break;
+      case 'search':
+        $location.search('select', 'hotels');
+        break;
+      case 'url':
+        $location.url('/cities/lodon?select=hotels#north');
+        break;
+    }
+  };
+
+  $interval(function() {
+    $scope.time = new Date().toTimeString();
+  }, 2000);
+
+  // $document.find('button').on('click', function(event) {
+  //   $window.alert(event.target.innerText);
+  // });
+
+  $scope.data = {
+    cities: ['London', 'New York', 'Paris'],
+    totalClicks: 0
+  };
+  $scope.$watch('data.totalClicks', function(newVal) {
+    logService.log('Total click count: ' + newVal);
+  });
+
+  $scope.dataValue = 'Not Sure';
   $scope.products = [
     { name: "Apples", category: "Fruit", price: 1.20, expiry: 10 },
     { name: "Bananas", category: "Fruit", price: 2.42, expiry: 7 },

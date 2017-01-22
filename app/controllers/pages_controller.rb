@@ -18,4 +18,16 @@ class PagesController < ApplicationController
   def directive_controller
 
   end
+
+  def custom_forms
+
+  end
+
+  def example
+
+  end
+
+  def dom_api
+
+  end
 end
