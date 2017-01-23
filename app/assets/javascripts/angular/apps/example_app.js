@@ -10,4 +10,8 @@ angular.module('exampleApp', ['customDirectives', 'customServices'])
     }
   }).config(function($anchorScrollProvider) {
     $anchorScrollProvider.disableAutoScrolling();
+  }).factory('$exceptionHandler', function($log) {
+    return function(exception, cause) {
+      $log.error("Message: " + exception.message + ' ' + 'Cause: ' + cause);
+    }
   });

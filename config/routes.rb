@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/customForms.html' => 'pages#custom_forms'
   get '/example.html' => 'pages#example'
   get '/domApi.html' => 'pages#dom_api'
+  get '/exception.html' => 'pages#exception'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

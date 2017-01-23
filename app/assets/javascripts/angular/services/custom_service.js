@@ -22,12 +22,12 @@ function logService() {
         return debug;
       }
     },
-    $get: function() {
+    $get: function($log) {
       return {
         messageCount: 0,
         log: function(msg) {
           if(debug) {
-            console.log('Log ' + (counter ? (this.messageCount++) : '' ) + msg);
+            $log.log('Log ' + (counter ? (this.messageCount++) : '' ) + msg);
           }
         }
       };

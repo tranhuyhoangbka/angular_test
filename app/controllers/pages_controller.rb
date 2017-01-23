@@ -30,4 +30,8 @@ class PagesController < ApplicationController
   def dom_api
 
   end
+
+  def exception
+
+  end
 end

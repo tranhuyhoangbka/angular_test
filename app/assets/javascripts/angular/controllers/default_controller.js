@@ -1,12 +1,20 @@
 'use strict';
 
 angular.module('exampleApp').controller('defaultController', defaultController);
-defaultController.$inject = ['$scope', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
+defaultController.$inject = ['$scope', '$exceptionHandler', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
 
-function defaultController($scope, $anchorScroll, $location, $interval, $window, $document, logService) {
+function defaultController($scope, $exceptionHandler, $anchorScroll, $location, $interval, $window, $document, logService) {
   // $scope.displayAlert = function(msg) {
   //   $window.alert(msg);
   // };
+  //
+  $scope.throwEx = function() {
+    try{
+      throw new Error('Triggered Exception');
+    } catch(ex) {
+      $exceptionHandler(ex, 'button click');
+    }
+  };
   $scope.itemCount = 50;
   $scope.items = [];
 
