@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/transclude.html' => "pages#transclude"
   get '/compile.html' => 'pages#compile'
   get '/directive_controller.html' => 'pages#directive_controller'
+  get '/customForms.html' => 'pages#custom_forms'
+  get '/example.html' => 'pages#example'
+  get '/domApi.html' => 'pages#dom_api'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

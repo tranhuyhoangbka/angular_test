@@ -3,6 +3,9 @@
     <td>{{item.name}}</td>
     <td><input ng-model="item.quantity"></td>
   </script>
+  <script type="text/ng-template" id="resetTemplate">
+    <div><button ng-click="reset()">Reset All</button></div>
+  </script>
   <div class="panel panel-default" ng-controller="directiveController">
     <div class="panel-body">
       <table class="table table-striped" product-table="totalValue"
@@ -10,6 +13,7 @@
         <tr><th>Name</th><th>Quantity</th></tr>
         <tr ng-repeat="item in products" product-item></tr>
         <tr><th>Total:</th><td>{{totalValue}}</td></tr>
+        <tr reset-total product-data="products" property-name="quantity"></tr>
       </table>
     </div>
   </div>

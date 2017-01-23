@@ -1,0 +1,35 @@
+<div class="col-md-8 col-md-offset-2" ng-app="exampleApp" ng-controller="defaultController">
+  <button class="btn btn-primary" ng-click="displayAlert('Clicked!')">Click Me</button>
+  <div ng-bind="time"></div>
+  <div class="panel panel-default">
+    <h4 class="panel-heading">URL</h4>
+    <div class="panel-body">
+      <p>The URL is: {{url}}</p>
+      <div class="btn-group">
+        <button class="btn btn-primary" ng-click="setUrl('reset')">Reset</button>
+        <button class="btn btn-primary" ng-click="setUrl('path')">Path</button>
+        <button class="btn btn-primary" ng-click="setUrl('hash')">Hash</button>
+        <button class="btn btn-primary" ng-click="setUrl('search')">Search</button>
+        <button class="btn btn-primary" ng-click="setUrl('url')">URL</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <p id="top">This is the top</p>
+      <button class="btn btn-primary" ng-click="show('bottom')">
+        Go to bottom
+      </button>
+      <p>
+        <ul>
+          <li ng-repeat="item in items">{{item}}</li>
+        </ul>
+      </p>
+      <p id="bottom">
+        This is the bottom
+      </p>
+      <button class="btn btn-primary" ng-click="show('top')">Go to top</button>
+    </div>
+  </div>
+</div>

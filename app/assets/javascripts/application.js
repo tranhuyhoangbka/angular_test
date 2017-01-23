@@ -16,7 +16,9 @@
 //= require bootstrap
 //= require angular/libs/lodash.min
 //= require angular/libs/angular.min
+//= require angular/apps/directive
 //= require angular/apps/example_app
+//= require angular/services/custom_service
 //= require angular/directives/unorderListDirective
 //= require angular/directives/demo_directive
 //= require angular/directives/scope_demo_directive
@@ -24,6 +26,9 @@
 //= require angular/directives/compile_directive
 //= require angular/directives/product_item_directive
 //= require angular/directives/product_table_directive
+//= require angular/directives/resetTotal_directive
+//= require angular/directives/tributton_directive
+//= require angular/directives/tributton_new_directive
 //= require angular/controllers/default_controller
 //= require angular/controllers/scope_controller
 //= require angular/controllers/second_controller
