@@ -34,4 +34,8 @@ class PagesController < ApplicationController
   def exception
 
   end
+
+  def expressions
+
+  end
 end

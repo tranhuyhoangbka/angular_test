@@ -18,6 +18,7 @@
 //= require angular/libs/angular.min
 //= require angular/apps/directive
 //= require angular/apps/example_app
+//= require angular/directives/eval_expression_directive
 //= require angular/services/custom_service
 //= require angular/directives/unorderListDirective
 //= require angular/directives/demo_directive
