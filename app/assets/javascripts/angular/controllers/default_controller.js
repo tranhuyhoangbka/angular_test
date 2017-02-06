@@ -4,6 +4,7 @@ angular.module('exampleApp').controller('defaultController', defaultController);
 defaultController.$inject = ['$scope', '$exceptionHandler', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
 
 function defaultController($scope, $exceptionHandler, $anchorScroll, $location, $interval, $window, $document, logService) {
+  $scope.dataVal = '100.23';
   // $scope.displayAlert = function(msg) {
   //   $window.alert(msg);
   // };
