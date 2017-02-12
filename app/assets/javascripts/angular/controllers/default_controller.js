@@ -1,13 +1,18 @@
 'use strict';
 
 angular.module('exampleApp').controller('defaultController', defaultController);
-defaultController.$inject = ['$scope', '$exceptionHandler', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
+defaultController.$inject = ['$scope', '$sce', '$sanitize', '$exceptionHandler', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
 
-function defaultController($scope, $exceptionHandler, $anchorScroll, $location, $interval, $window, $document, logService) {
+function defaultController($scope, $sce, $sanitize, $exceptionHandler, $anchorScroll, $location, $interval, $window, $document, logService) {
   // $scope.displayAlert = function(msg) {
   //   $window.alert(msg);
   // };
   //
+  $scope.price = '100.23';
+  $scope.dangerousData = "<p>This is <b onmouseover=alert('Attack!')>dangerous</b> data</p>";
+  $scope.$watch('dangerousData', function(newValue) {
+    $scope.trustData = $sce.trustAsHtml(newValue);
+  });
   $scope.throwEx = function() {
     try{
       throw new Error('Triggered Exception');

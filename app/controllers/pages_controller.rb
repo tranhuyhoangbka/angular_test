@@ -34,4 +34,12 @@ class PagesController < ApplicationController
   def exception
 
   end
+
+  def html_data
+
+  end
+
+  def expressions
+
+  end
 end

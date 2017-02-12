@@ -1,4 +1,4 @@
-angular.module('exampleApp', ['customDirectives', 'customServices'])
+angular.module('exampleApp', ['ngSanitize', 'customDirectives', 'customServices'])
   .config(function(logServiceProvider) {
     logServiceProvider.debugEnabled(true).messageCounterEnabled(false);
   }).config(function($locationProvider) {
