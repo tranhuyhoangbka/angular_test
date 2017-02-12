@@ -1,20 +1,20 @@
 'use strict';
 
 angular.module('exampleApp').directive('evalExpression', evalExpression);
+evalExpression.$inject = ['$parse'];
 
 function evalExpression($parse) {
-  return function(scope, element, attrs) {
-    scope.$watch(attrs['evalExpression'], function(newValue) {
-      try {
-        var expressionFn = $parse(scope.expr);
-        var result = expressionFn(scope);
-        if(_.isUndefined(result)) {
-          result = 'No result';
-        }
-      } catch(err) {
-        result = 'Cannot evaluate expression';
-      }
-      element.text(result);
-    });
+  var expressionFn = $parse('total | currency');
+  return {
+    scope: {
+      amount: '=amount',
+      tax: '=tax'
+    },
+    link: function(scope, element, attrs) {
+      scope.$watch('amount', function(newValue) {
+        var localData = {total: Number(newValue) + (Number(newValue) * (Number(scope.tax) /100))}
+        element.text(expressionFn(scope, localData));
+      });
+    }
   }
 }
