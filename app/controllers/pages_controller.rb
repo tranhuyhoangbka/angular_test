@@ -42,4 +42,12 @@ class PagesController < ApplicationController
   def expressions
 
   end
+
+  def ajax
+
+  end
+
+  def promise
+
+  end
 end

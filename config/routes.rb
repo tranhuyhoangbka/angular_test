@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :products, only: :index
+
   root "pages#home"
   get "/directive_scope.html" => "pages#directive_scope"
   get '/transclude.html' => "pages#transclude"
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   get '/exception.html' => 'pages#exception'
   get '/html_data.html' => 'pages#html_data'
   get '/expressions.html' => 'pages#expressions'
+  get '/ajax.html' => 'pages#ajax'
+  get '/promises.html' => 'pages#promise'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
