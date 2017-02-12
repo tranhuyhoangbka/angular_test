@@ -1,10 +1,27 @@
 'use strict';
 
 angular.module('exampleApp').controller('defaultController', defaultController);
-defaultController.$inject = ['$scope', '$sce', '$sanitize', '$exceptionHandler', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
+defaultController.$inject = ['$scope', '$http', '$sce', '$sanitize', '$exceptionHandler', '$anchorScroll', '$location', '$interval', '$window', '$document', 'logService'];
 
-function defaultController($scope, $sce, $sanitize, $exceptionHandler, $anchorScroll, $location, $interval, $window, $document, logService) {
+function defaultController($scope, $http, $sce, $sanitize, $exceptionHandler, $anchorScroll, $location, $interval, $window, $document, logService) {
   $scope.cities = ['London', 'Paris', 'New York'];
+  $scope.loadData = function() {
+    $http.get('/products.xml').then(function(response) {
+      $scope.products = [];
+      var productElems = angular.element(response.data.trim()).find("product");
+      for(var i = 0; i < productElems.length; i++) {
+        var product = productElems.eq(i);
+        product = angular.element(product);
+        $scope.products.push({
+          name: product.attr('name'),
+          category: product.attr('category'),
+          price: product.attr('price')
+        });
+      }
+    }, function(error) {
+      console.log(error.data);
+    });
+  }
   // $scope.displayAlert = function(msg) {
   //   $window.alert(msg);
   // };

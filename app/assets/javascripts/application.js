@@ -19,6 +19,7 @@
 //= require angular/libs/angular-sanitize.min
 //= require angular/apps/directive
 //= require angular/apps/example_app
+//= require angular/directives/promise_worker_directive
 //= require angular/directives/eval_expression_directive
 //= require angular/services/custom_service
 //= require angular/directives/unorderListDirective
