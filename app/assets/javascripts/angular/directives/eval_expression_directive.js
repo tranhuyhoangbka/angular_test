@@ -1,20 +1,14 @@
 'use strict';
 
 angular.module('exampleApp').directive('evalExpression', evalExpression);
-evalExpression.$inject = ['$parse'];
+evalExpression.$inject = ['$compile'];
 
-function evalExpression($parse) {
-  var expressionFn = $parse('total | currency');
-  return {
-    scope: {
-      amount: '=amount',
-      tax: '=tax'
-    },
-    link: function(scope, element, attrs) {
-      scope.$watch('amount', function(newValue) {
-        var localData = {total: Number(newValue) + (Number(newValue) * (Number(scope.tax) /100))}
-        element.text(expressionFn(scope, localData));
-      });
-    }
-  }
+function evalExpression($compile) {
+  return function(scope, element, attrs) {
+    var content = '<ul><li ng-repeat="city in cities">{{city}}</li></ul>';
+    var listElem = angular.element(content);
+    var compileFn = $compile(listElem);
+    compileFn(scope);
+    element.append(listElem);
+  };
 }
